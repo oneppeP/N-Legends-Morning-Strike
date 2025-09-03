@@ -92,8 +92,8 @@
       "name": "grig.audio",
       "type": "git",
       "dir": null,
-      "ref": "main",
-      "url": "https://gitlab.com/haxe-grig/grig.audio.git"
+      "ref": "funkin",
+      "url": "https://github.com/FunkinCrew/grig.audio.git"
     },
     {
       "name": "away3d",
