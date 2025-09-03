@@ -40,8 +40,8 @@
       "name": "hxcpp",
       "type": "git",
       "dir": null,
-      "ref": null,
-      "url": "https://github.com/JS-Engine-things/hxcpp"
+      "ref": "funkin",
+      "url": "https://github.com/FunkinCrew/hxcpp"
     },
     {
       "name": "hxvlc",

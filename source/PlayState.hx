@@ -24,7 +24,6 @@ import openfl.filters.BitmapFilter;
 import openfl.filters.ShaderFilter;
 import shaders.ErrorHandledShader;
 #end
-import utils.*;
 
 
 class PlayState extends MusicBeatState
@@ -280,7 +279,6 @@ class PlayState extends MusicBeatState
 	public var camGame:FlxCamera;
 	public var camOther:FlxCamera;
 	public var cameraSpeed:Float = 1;
-	var secretsong:FlxSprite;
 	var hitsoundImage:FlxSprite;
 	var hitsoundImageToLoad:String;
 
@@ -2178,7 +2176,7 @@ class PlayState extends MusicBeatState
 
 		if (SONG.song.toLowerCase() == 'anti-cheat-song')
 		{
-			secretsong = new FlxSprite().loadGraphic(Paths.image('secretSong'));
+			final secretsong:FlxSprite = new FlxSprite().loadGraphic(Paths.image('secretSong'));
 			secretsong.antialiasing = ClientPrefs.globalAntialiasing;
 			secretsong.scrollFactor.set();
 			secretsong.setGraphicSize(Std.int(secretsong.width / FlxG.camera.zoom));
@@ -6745,4 +6743,3 @@ class PlayState extends MusicBeatState
 		FlxG.autoPause = ClientPrefs.autoPause;
 	}
 }
-

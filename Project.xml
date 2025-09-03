@@ -42,6 +42,8 @@
 
 	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web"/>
 	<assets path="assets/preload" rename="assets" exclude="*.mp3" unless="web"/>
+	<assets path="assets/embed"  exclude="*.ogg" if="web" embed="true"/>
+	<assets path="assets/embed"  exclude="*.mp3" unless="web" embed="true"/>
 	<assets path='art/debugThingyMajiggy.bat' rename='Open me to use the debug terminal.bat' />
 
 	<!-- DONT ENABLE THIS!! shut up shadowmario ill enable whatever i want-->
@@ -151,9 +153,6 @@
 	<haxedef name="HXCPP_GC_BIG_BLOCKS" if="cpp"/>
 	<!--also fixes like any "Memory Exhausted" issues you might get when compiling-->
 
-	<!-- Show debug traces for hxCodec -->
-	<haxedef name="HXC_DEBUG_TRACE" if="debug" />
-
 	<!--Disable the Flixel core debugger. Automatically gets set whenever you compile in release mode!-->
 	<haxedef name="FLX_NO_DEBUG" unless="debug" />
 
@@ -174,6 +173,10 @@
 	<haxedef name="no-inline" if="html5"/>
 
 	<haxedef name='no-deprecation-warnings' unless="debug" />
+	<!-- for lime to not recompile asset cache on every build-->
+	<haxedef name='lime_disable_assets_version' />
+	<!--Disable deprecated warnings-->
+	<haxedef name='no_ssl' if="hl" />
 
 	<!-- back in my day we used to have errors that gave little info -->
 	<haxedef name="message.reporting" value="pretty" unless="{haxe &lt; 4.3.1}"/>
