@@ -4,7 +4,7 @@
 # https://haxe.org/download
 echo Installing dependencies...
 echo This might take a few moments depending on your internet speed.
-sudo apt install libgl-dev libx11-dev libxi-dev libxpm-dev libxrandr-dev libncurses-dev libgtk-3-dev
+sudo apt install libgl-dev libx11-dev libxi-dev libxpm-dev libxrandr-dev libncurses-dev libgtk-3-dev libgtk-3-doc
 haxelib git lime https://github.com/th2l-devs/lime --quiet
 haxelib git openfl https://github.com/th2l-devs/openfl --quiet
 haxelib git flixel https://github.com/JS-Engine-things/flixel-JS-Engine --quiet
@@ -23,4 +23,5 @@ haxelib git grig.audio https://github.com/FunkinCrew/grig.audio.git --quiet
 haxelib git hxdiscord_rpc https://github.com/MAJigsaw77/hxdiscord_rpc --quiet --skip-dependencies
 haxelib git hxvlc https://github.com/th2l-devs/hxvlc --quiet --skip-dependencies
 haxelib git hxnativefiledialog https://github.com/MAJigsaw77/hxnativefiledialog --quiet --skip-dependencies
+haxelib run lime rebuild hxnativefiledialog linux --quiet
 echo Finished!
