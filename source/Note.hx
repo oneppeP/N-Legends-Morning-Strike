@@ -619,6 +619,7 @@ class Note extends FlxSprite
 		isSustainNote = chartNoteData.isSustainNote;
 		isSustainEnd = chartNoteData.isSustainEnd;
 		lowPriority = chartNoteData.lowPriority;
+		multAlpha = chartNoteData.multAlpha;
 		if (isSustainNote) {
 			parentST = chartNoteData.parentST;
 			parentSL = chartNoteData.parentSL;
