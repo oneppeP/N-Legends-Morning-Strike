@@ -23,5 +23,4 @@ haxelib git grig.audio https://github.com/FunkinCrew/grig.audio.git --quiet
 haxelib git hxdiscord_rpc https://github.com/MAJigsaw77/hxdiscord_rpc --quiet --skip-dependencies
 haxelib git hxvlc https://github.com/th2l-devs/hxvlc --quiet --skip-dependencies
 haxelib git hxnativefiledialog https://github.com/MAJigsaw77/hxnativefiledialog --quiet --skip-dependencies
-haxelib run lime rebuild hxnativefiledialog linux --quiet
 echo Finished!
