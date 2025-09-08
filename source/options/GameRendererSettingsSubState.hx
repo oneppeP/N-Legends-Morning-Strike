@@ -147,49 +147,48 @@ class GameRendererSettingsSubState extends BaseOptionsMenu
 	function changeOutputPath()
 	{
 		#if hxnativefiledialog
-    var outPath:NFDCharStar_T = null;
-    var result:NFDResult_T = NFD.PickFolder(null, cpp.RawPointer.addressOf(outPath));
+		var outPath:NFDCharStar_T = null;
+		var result:NFDResult_T = NFD.PickFolder(null, cpp.RawPointer.addressOf(outPath));
 
-    switch (result)
-    {
-        case NFD_OKAY:
-            if (outPath != null)
-            {
-                var cwd:String = Sys.getCwd().split('\\').join('/');
-                var selected:String = cast(outPath, String).split('\\').join('/');
+		switch (result)
+		{
+			case NFD_OKAY:
+				if (outPath != null)
+				{
+					var cwd:String = Sys.getCwd().split('\\').join('/');
+					var selected:String = cast(outPath, String).split('\\').join('/');
 
-                if (!cwd.endsWith('/')) cwd += '/';
-                if (!selected.endsWith('/')) selected += '/';
+					if (!cwd.endsWith('/')) cwd += '/';
+					if (!selected.endsWith('/')) selected += '/';
 
-                var finalPath:String;
-                if (selected.startsWith(cwd))
-                {
-                    finalPath = selected.substr(cwd.length);
-                    if (finalPath == '') finalPath = './';  // Handle root case if needed
-                }
-                else
-                {
-                    finalPath = 'assets/gameRenders/';
-                }
+					var finalPath:String;
+					if (selected.startsWith(cwd))
+					{
+						finalPath = selected.substr(cwd.length);
+						if (finalPath == '') finalPath = './';  // Handle root case if needed
+					}
+					else
+					{
+						finalPath = 'assets/gameRenders/';
+					}
 
-                ClientPrefs.renderPath = finalPath;
-                renderPathOption.description = "Where the video should be put when finished rendering, Default: 'assets/gameRenders/'";
-                renderPathOption.description += '\n\nCurrent Path: ' + finalPath;
+					ClientPrefs.renderPath = finalPath;
+					renderPathOption.description = "Where the video should be put when finished rendering, Default: 'assets/gameRenders/'";
+					renderPathOption.description += '\n\nCurrent Path: ' + finalPath;
+					renderPathOption.setValue(renderPathOption.getValue());
 
-								renderPathOption.setValue(renderPathOption.getValue());
+					refreshDescription(renderPathOption);
+					cpp.Stdlib.nativeFree(untyped outPath);
+				}
 
-								refreshDescription(renderPathOption);
-                cpp.Stdlib.nativeFree(untyped outPath);
-            }
+			case NFD_CANCEL:
+				trace("User cancelled folder selection.");
 
-        case NFD_CANCEL:
-            trace("User cancelled folder selection.");
-
-        default:
-            trace("Error: " + NFD.GetError());
-    }
-    #else
-    trace("File dialog only supported on native (C++).");
-    #end
+			default:
+				trace("Error: " + NFD.GetError());
+		}
+   		#else
+		trace("File dialog only supported on native (C++).");
+    	#end
 	}
 }

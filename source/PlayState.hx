@@ -103,7 +103,6 @@ class PlayState extends MusicBeatState
 	public static var storyWeek:Int = 0;
 	public static var storyPlaylist:Array<String> = [];
 	public static var storyDifficulty:Int = 1;
-	public var firstNoteStrumTime:Float = 0;
 	var winning:Bool = false;
 	var losing:Bool = false;
 
@@ -327,7 +326,6 @@ class PlayState extends MusicBeatState
 	var hitTxt:FlxText;
 
 	var scoreTxtTween:FlxTween;
-	var timeTxtTween:FlxTween;
 	var judgementCounter:FlxText;
 
 	public static var campaignScore:Float = 0;
@@ -1145,8 +1143,6 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (notes.members[0] != null) firstNoteStrumTime = notes.members[0].strumTime;
-
 		camFollow = FlxPoint.get();
 		camFollowPos = new FlxObject();
 
@@ -1391,7 +1387,6 @@ class PlayState extends MusicBeatState
 			dadGroup.destroy();
 			boyfriendGroup.destroy();
 		}
-		if (ClientPrefs.scoreTxtSize > 0 && scoreTxt != null && !ClientPrefs.showcaseMode && !ClientPrefs.hideHud) scoreTxt.size = ClientPrefs.scoreTxtSize;
 
 		final ytWMPosition = switch(ClientPrefs.ytWatermarkPosition)
 		{
@@ -2052,34 +2047,6 @@ class PlayState extends MusicBeatState
 		if (!opponentDrain && !Math.isNaN((opponentChart ? boyfriend : dad).drainFloor)) healthDrainFloor = opponentChart ? boyfriend.drainFloor : dad.drainFloor;
 	}
 
-	var fps:Float = 60;
-	var bfCanPan:Bool = false;
-	var dadCanPan:Bool = false;
-	var doPan:Bool = false;
-	function camPanRoutine(anim:String = 'singUP', who:String = 'bf'):Void {
-		if (SONG.notes[curSection] != null)
-		{
-			fps = FlxG.updateFramerate;
-			bfCanPan = SONG.notes[curSection].mustHitSection;
-			dadCanPan = !SONG.notes[curSection].mustHitSection;
-			switch (who) {
-				case 'bf' | 'boyfriend': doPan = bfCanPan;
-				case 'oppt' | 'dad': doPan = dadCanPan;
-			}
-			//FlxG.elapsed is stinky poo poo for this, it just makes it look jank as fuck
-			if (doPan && cameraSpeed > 0) {
-				if (fps == 0) fps = 1;
-				switch (anim.split('-')[0])
-				{
-					case 'singUP': moveCamTo[1] = -40*ClientPrefs.panIntensity*240/fps;
-					case 'singDOWN': moveCamTo[1] = 40*ClientPrefs.panIntensity*240/fps;
-					case 'singLEFT': moveCamTo[0] = -40*ClientPrefs.panIntensity*240/fps;
-					case 'singRIGHT': moveCamTo[0] = 40*ClientPrefs.panIntensity*240/fps;
-				}
-			}
-		}
-	}
-
 	var startTimer:FlxTimer;
 	var finishTimer:FlxTimer = null;
 
@@ -2523,14 +2490,14 @@ class PlayState extends MusicBeatState
 		stagesFunc(function(stage:BaseStage) stage.startSong());
 
 		// Song duration in a float, useful for the time left feature
-		if (ClientPrefs.lengthIntro) FlxTween.tween(this, {songLength: FlxG.sound.music.length}, 1, {ease: FlxEase.expoOut});
-		if (!ClientPrefs.lengthIntro) songLength = FlxG.sound.music.length; //so that the timer won't just appear as 0
+		songLength = FlxG.sound.music.length; //so that the timer won't just appear as 0
+
 		if (ClientPrefs.timeBarType != 'Disabled') {
-		timeBar.scale.x = 0.01;
-		timeBarBG.scale.x = 0.01;
-		FlxTween.tween(timeBar, {alpha: 1, "scale.x": 1}, 1, {ease: FlxEase.expoOut});
-		FlxTween.tween(timeBarBG, {alpha: 1, "scale.x": 1}, 1, {ease: FlxEase.expoOut});
-		FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
+			timeBar.scale.x = 0.01;
+			timeBarBG.scale.x = 0.01;
+			FlxTween.tween(timeBar, {alpha: 1, "scale.x": 1}, 1, {ease: FlxEase.expoOut});
+			FlxTween.tween(timeBarBG, {alpha: 1, "scale.x": 1}, 1, {ease: FlxEase.expoOut});
+			FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		}
 
 		if (ClientPrefs.ratingCounter && judgeCountUpdateFrame <= 4 && judgementCounter != null) updateRatingCounter();
@@ -3154,7 +3121,6 @@ class PlayState extends MusicBeatState
 	public var canReset:Bool = true;
 	var startedCountdown:Bool = false;
 	var canPause:Bool = true;
-	var pbRM:Float = 2.0;
 
 	public var takenTime:Float = haxe.Timer.stamp();
 	public var totalRenderTime:Float = 0;
@@ -3195,19 +3161,7 @@ class PlayState extends MusicBeatState
 				screenshader.shader.uampmul.value[0] -= (elapsed / 2);
 			}
 		}
-		if (ClientPrefs.pbRControls)
-		{
-			if (FlxG.keys.pressed.SHIFT) {
-				if (pbRM != 4.0) pbRM = 4.0;
-			} else {
-				if (pbRM != 2.0) pbRM = 2.0;
-			}
-	   			if (FlxG.keys.justPressed.SLASH)
-						playbackRate /= pbRM;
 
-				if (FlxG.keys.justPressed.PERIOD)
-		   			playbackRate *= pbRM;
-		}
 		if (!cpuControlled && canUseBotEnergy)
 		{
 			if (controls.BOT_ENERGY_P && !noEnergy)
@@ -3923,12 +3877,8 @@ class PlayState extends MusicBeatState
 	public var isDead:Bool = false; //Don't mess with this on Lua!!!
 	public var gameOverTimer:FlxTimer;
 	function doDeathCheck(?skipHealthCheck:Bool = false) {
-		if (((skipHealthCheck && instakillOnMiss) || health <= 0) && !practiceMode && !isDead)
+		if ((skipHealthCheck || health <= 0) && !practiceMode && !isDead)
 		{
-			if (ClientPrefs.instaRestart)
-			{
-				restartSong(true);
-			}
 			var ret:Dynamic = callOnLuas('onGameOver', [], false);
 			stagesFunc(function(stage:BaseStage) stage.onGameOver());
 			if(ret != FunkinLua.Function_Stop) {
@@ -5128,13 +5078,11 @@ class PlayState extends MusicBeatState
 			if (!opponentChart && ClientPrefs.ghostTapAnim && ClientPrefs.charsAndBG)
 			{
 				boyfriend.playAnim(singAnimations[Std.int(Math.abs(key))], true);
-				if (ClientPrefs.cameraPanning) camPanRoutine(singAnimations[Std.int(Math.abs(key))], 'bf');
 				boyfriend.holdTimer = 0;
 			}
 			if (opponentChart && ClientPrefs.ghostTapAnim && ClientPrefs.charsAndBG)
 			{
 				dad.playAnim(singAnimations[Std.int(Math.abs(key))], true);
-				if (ClientPrefs.cameraPanning) camPanRoutine(singAnimations[Std.int(Math.abs(key))], 'dad');
 				dad.holdTimer = 0;
 			}
 			if (canMiss) {
@@ -5593,7 +5541,6 @@ class PlayState extends MusicBeatState
 					if (note.animSuffix.length > 0 && playerChar.hasAnimation(animToPlay + note.animSuffix))
 						animToPlay = singAnimations[Std.int(Math.abs(note.noteData))] + note.animSuffix;
 
-					if (ClientPrefs.cameraPanning) camPanRoutine(animToPlay, (!oppTrigger ? 'bf' : 'oppt'));
 					if (playerChar != null)
 					{
 						canPlay = (!note.isSustainNote || ClientPrefs.oldSusStyle && note.isSustainNote);
@@ -5761,8 +5708,6 @@ class PlayState extends MusicBeatState
 
 				if (daNote.animSuffix.length > 0 && oppChar.hasAnimation(animToPlay + daNote.animSuffix))
 					animToPlay = singAnimations[Std.int(Math.abs(daNote.noteData))] + daNote.animSuffix;
-
-				if (ClientPrefs.cameraPanning) camPanRoutine(animToPlay, (!opponentChart ? 'dad' : 'bf'));
 
 				if (oppChar != null)
 				{
@@ -6113,20 +6058,6 @@ class PlayState extends MusicBeatState
 		super.beatHit();
 
 		if (lastBeatHit == curBeat) return;
-
-		if(ClientPrefs.timeBounce)
-		{
-			if(timeTxtTween != null) {
-				timeTxtTween.cancel();
-			}
-			timeTxt.scale.x = 1.075;
-			timeTxt.scale.y = 1.075;
-			timeTxtTween = FlxTween.tween(timeTxt.scale, {x: 1, y: 1}, 0.2, {
-				onComplete: function(twn:FlxTween) {
-					timeTxtTween = null;
-				}
-			});
-		}
 
 		if (curBeat % 32 == 0 && randomSpeedThing)
 		{
@@ -6518,8 +6449,6 @@ class PlayState extends MusicBeatState
 		final ratingCountString = (!cpuControlled || cpuControlled && !ClientPrefs.lessBotLag ? '\n' + (!ClientPrefs.noMarvJudge ? judgeCountStrings[0] + ': $perfects \n' : '') + judgeCountStrings[1] + ': $sicks \n' + judgeCountStrings[2] + ': $goods \n' + judgeCountStrings[3] + ': $bads \n' + judgeCountStrings[4] + ': $shits \n' + judgeCountStrings[5] + ': $formattedSongMisses ' : '');
 		judgementCounter.text = hittingStuff + ratingCountString;
 		judgementCounter.text += (ClientPrefs.showNPS ? '\nNPS: ' + formattedNPS + '/' + formattedMaxNPS : '');
-		if (ClientPrefs.opponentRateCount) judgementCounter.text += '\n\nOpponent Hits: ' + formattedEnemyHits + ' / ' + formatNumber(opponentNoteTotal) + ' (' + FlxMath.roundDecimal((enemyHits / opponentNoteTotal) * 100, 2) + '%)'
-		+ (ClientPrefs.showNPS ? '\nOpponent NPS: ' + formattedOppNPS + '/' + formattedMaxOppNPS : '');
 	}
 
 	public var ratingName:String = '?';

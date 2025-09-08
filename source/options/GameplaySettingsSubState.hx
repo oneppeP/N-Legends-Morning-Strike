@@ -82,13 +82,6 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			false);
 		addOption(option);
 
-		var option:Option = new Option('Instant Respawn',
-			"Instantly respawn when you die.",
-			'instaRestart',
-			'bool',
-			false);
-		addOption(option);
-
 		var option:Option = new Option('More Spammable Inputs',
 			'If checked, the input system is more spammable.',
 			'ezSpam',

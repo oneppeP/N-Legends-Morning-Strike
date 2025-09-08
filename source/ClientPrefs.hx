@@ -16,7 +16,6 @@ class ClientPrefs { //default settings if it can't find a save file containing y
 	public static var noMarvJudge:Bool = false;
 	public static var noReset:Bool = false;
 	public static var antiCheatEnable:Bool = false;
-	public static var instaRestart:Bool = false;
 	public static var ezSpam:Bool = false;
 	public static var spaceVPose:Bool = true;
 	public static var ghostTapAnim:Bool = true;
@@ -41,16 +40,11 @@ class ClientPrefs { //default settings if it can't find a save file containing y
 	public static var showRendered:Bool = false;
 	public static var showcaseMode:Bool = false;
 	public static var showcaseST:String = 'JS';
-	public static var timeBounce:Bool = true;
-	public static var lengthIntro:Bool = true;
 	public static var botWatermark:Bool = true;
 	public static var missRating:Bool = false;
-	public static var scoreTxtSize:Int = 0;
 	public static var noteColorStyle:String = 'Normal';
 	public static var enableColorShader:Bool = true;
 	public static var iconBopWhen:String = 'Every Beat';
-	public static var cameraPanning:Bool = true;
-	public static var panIntensity:Float = 1;
 	public static var rateNameStuff:String = 'Quotes';
 	public static var timeBarType:String = 'Time Left';
 	public static var scoreStyle:String = 'Psych Engine';
@@ -68,7 +62,6 @@ class ClientPrefs { //default settings if it can't find a save file containing y
 	public static var smoothHPBug:Bool = false;
 	public static var noBopLimit:Bool = false;
 	public static var ogHPColor:Bool = false;
-	public static var opponentRateCount:Bool = true;
 	public static var flashing:Bool = true;
 	public static var camZooms:Bool = true;
 	public static var ratingCounter:Bool = false;
@@ -116,7 +109,6 @@ class ClientPrefs { //default settings if it can't find a save file containing y
 
 	//Secret Debug
 	public static var noGunsRNG:Bool = false;
-	public static var pbRControls:Bool = false;
 	public static var rainbowFPS:Bool = false;
 	public static var noRenderGC:Bool = false;
 
@@ -203,7 +195,6 @@ class ClientPrefs { //default settings if it can't find a save file containing y
 		'healthgain' => 1.0,
 		'healthloss' => 1.0,
 		'instakill' => false,
-		'onlySicks' => false,
 		'practice' => false,
 		'botplay' => false,
 		'randommode' => false,

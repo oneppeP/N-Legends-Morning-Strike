@@ -157,20 +157,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			['JS', 'AMZ']);
 		addOption(option);
 
-		var option:Option = new Option('Time Text Bounce',
-			'If checked, the time bar text will bounce on every beat hit.',
-			'timeBounce',
-			'bool',
-			true);
-		addOption(option);
-
-		var option:Option = new Option('songLength Intro Animation',
-			'If checked, the song length will also have an intro animation.',
-			'lengthIntro',
-			'bool',
-			true);
-		addOption(option);
-
 		var option:Option = new Option('Botplay Watermark',
 			'If checked, some texts will have a watermark if Botplay is enabled.',
 			'botWatermark',
@@ -184,16 +170,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			'bool',
 			false);
 		addOption(option);
-
-		var option:Option = new Option('ScoreTxt Size: ',
-			"Sets the size of scoreTxt. Logically, higher values mean\nthe scoreTxt is bigger. If set to 0, then it will\nuse the default size for each HUD type.",
-			'scoreTxtSize',
-			'int',
-			'0');
-		addOption(option);
-
-		option.minValue = 0;
-		option.maxValue = 100;
 
 		var option:Option = new Option('Note Color Style: ',
 			"How would you like your notes colored?",
@@ -216,25 +192,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			'string',
 			'Every Beat',
 			['Every Beat', 'Every Note Hit']);
-		addOption(option);
-
-		var option:Option = new Option('Camera Note Movement',
-			"If checked, note hits will move the camera depending on which note you hit.",
-			'cameraPanning',
-			'bool',
-			true);
-		addOption(option);
-
-		var option:Option = new Option('Camera Pan Intensity:', //Name
-			'Changes how much the camera pans when Camera Note Movement is turned on.', //Description
-			'panIntensity', //Save data variable name
-			'float', //Variable type
-			1); //Default value
-		option.scrollSpeed = 2;
-		option.minValue = 0.01;
-		option.maxValue = 10;
-		option.changeValue = 0.1;
-		option.displayFormat = '%vX';
 		addOption(option);
 
 		var ratingQuoteList:Array<String> = Paths.mergeAllTextsNamed('data/ratingQuotes/list.txt', '', true);
@@ -379,13 +336,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			'ogHPColor',
 			'bool',
 			false);
-		addOption(option);
-
-		var option:Option = new Option('Opponent Note Hit Count',
-			"If checked, the rating counter will also show how many notes the opponent has hit.",
-			'opponentRateCount',
-			'bool',
-			true);
 		addOption(option);
 
 		var option:Option = new Option('Flashing Lights',
