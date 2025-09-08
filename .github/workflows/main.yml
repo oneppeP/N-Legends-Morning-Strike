@@ -60,6 +60,7 @@ jobs:
           cd ./hxcpp
           haxe compile.hxml
           cd ../..
+          dpkg -L libgtk-3-dev | grep gtk.h
       - name: Compile
         run: |
           rm -f assets/preload/gameRenders/renderlol.bat
