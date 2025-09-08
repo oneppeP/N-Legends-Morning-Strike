@@ -34,6 +34,7 @@ typedef PreloadedChartNote = {
 	hitCausesMiss:Null<Bool>,
 	wasHit:Bool,
 	multSpeed:Float,
+	multAlpha:Float,
 	noteDensity:Float,
 	ignoreNote:Bool,
 	blockHit:Bool,
