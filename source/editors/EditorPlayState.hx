@@ -243,6 +243,7 @@ class EditorPlayState extends MusicBeatState
 						missHealth: 0.0475,
 						wasHit: false,
 						multSpeed: 1,
+						multAlpha: 1,
 						wasSpawned: false,
 						ignoreNote: songNotes[3] == 'Hurt Note' && gottaHitNote
 					};

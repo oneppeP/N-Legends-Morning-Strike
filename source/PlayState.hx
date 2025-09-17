@@ -2752,6 +2752,7 @@ class PlayState extends MusicBeatState
 						wasHit: false,
 						hitCausesMiss: songNotes[3] == 'Hurt Note',
 						multSpeed: 1,
+						multAlpha: 1,
 						noteDensity: currentMultiplier,
 						ignoreNote: songNotes[3] == 'Hurt Note' && gottaHitNote
 					};
