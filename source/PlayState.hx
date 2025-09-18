@@ -2786,6 +2786,7 @@ class PlayState extends MusicBeatState
 								missHealth: swagNote.missHealth,
 								wasHit: false,
 								multSpeed: 1,
+								multAlpha: 1,	
 								noteDensity: currentMultiplier,
 								hitCausesMiss: swagNote.hitCausesMiss,
 								ignoreNote: swagNote.ignoreNote
@@ -2820,6 +2821,7 @@ class PlayState extends MusicBeatState
 								missHealth: songNotes[3] != 'Hurt Note' ? 0.0475 : 0.1,
 								wasHit: false,
 								multSpeed: 1,
+								multAlpha: 1,
 								noteDensity: currentMultiplier,
 								hitCausesMiss: songNotes[3] == 'Hurt Note',
 								ignoreNote: songNotes[3] == 'Hurt Note' && swagNote.mustPress
@@ -6673,3 +6675,4 @@ class PlayState extends MusicBeatState
 		FlxG.autoPause = ClientPrefs.autoPause;
 	}
 }
+
