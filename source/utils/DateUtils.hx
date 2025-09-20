@@ -19,7 +19,7 @@ final class DateUtils {
 
   @:noCompletion
   inline public static function isAprilFools():Bool
-    #if APRIL_FOOLS
+    #if FUNNY_ALLOWED
     return ((date.getMonth() == 3 && date.getDate() == 1) && !ClientPrefs.disableAprilFools); // funny
     #else
     return false;

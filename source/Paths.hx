@@ -28,6 +28,7 @@ class Paths
 {
 	inline public static var SOUND_EXT = #if web "mp3" #else "ogg" #end;
 	inline public static var VIDEO_EXT = "mp4";
+	inline public static var IMAGE_EXT = "png";
 
 	public static var defaultNoteSprite:FlxSprite;
 
@@ -336,23 +337,29 @@ class Paths
 		}
 		#end
 
-		if (library != null)
-			return getLibraryPath(file, library);
+		if (library != null){
+			//trace(getLibraryPath(file, library));
+			return getLibraryPath(file, library);	
+		}
 
 		if (currentLevel != null)
 		{
 			var levelPath:String = '';
 			if(currentLevel != 'shared') {
 				levelPath = getLibraryPathForce(file, currentLevel);
-				if (OpenFlAssets.exists(levelPath, type))
+				if (OpenFlAssets.exists(levelPath, type)){
+					trace(levelPath);
 					return levelPath;
+				}
 			}
 
 			levelPath = getLibraryPathForce(file, "shared");
-			if (OpenFlAssets.exists(levelPath, type))
+			if (OpenFlAssets.exists(levelPath, type)){
+				//trace(levelPath);
 				return levelPath;
+			}
 		}
-
+		//trace(getPreloadPath(file));
 		return getPreloadPath(file);
 	}
 
@@ -387,10 +394,16 @@ class Paths
 		return if (library == "preload" || library == "default") getPreloadPath(file); else getLibraryPathForce(file, library);
 	}
 
-	inline static function getLibraryPathForce(file:String, library:String)
+	inline static function getLibraryPathForce(file:String, library:String, ?level:String)
 	{
-		var returnPath = '$library:assets/$library/$file';
-		return returnPath;
+		if (level == null)
+			level = library;
+		var returnPath = '$library:assets/$level/$file';
+		if (OpenFlAssets.exists(returnPath)) {
+			return returnPath;
+		} else {
+			return 'assets/$level/$file';
+		}
 	}
 
 	inline public static function getPreloadPath(file:String = '')
@@ -553,6 +566,12 @@ class Paths
 		var eventsKey:String = formatToSongPath(song) + '/events';
 		return (!onlyEventsString ? eventsKey : 'events');
 	}
+	
+	inline public static function imagePath(key:String, ?folder:String):String
+		return getPath('images/$key.$IMAGE_EXT', IMAGE, folder);
+
+	inline public static function imageExists(key:String, ?folder:String):Bool
+		return Paths.exists(imagePath(key, folder));
 
 	//Loads images.
 	public static var currentTrackedAssets:Map<String, FlxGraphic> = [];

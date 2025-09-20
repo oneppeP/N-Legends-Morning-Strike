@@ -6,6 +6,10 @@ import editors.MasterEditorMenu;
 import flixel.effects.FlxFlicker;
 import flixel.input.keyboard.FlxKey;
 import lime.app.Application;
+#if FUNNY_ALLOWED
+import openfl.display.BlendMode;
+import flixel.addons.plugin.screengrab.FlxScreenGrab;
+#end
 
 class MainMenuState extends MusicBeatState
 {
@@ -46,6 +50,8 @@ class MainMenuState extends MusicBeatState
 
 	var tipsArray:Array<String> = [];
 	var canDoTips:Bool = true; // in case the tips don't exist lol
+	
+	var funnycatperson:FlxSprite;
 
 	override function create()
 	{
@@ -55,9 +61,24 @@ class MainMenuState extends MusicBeatState
 
 		tipsArray = CoolUtil.coolTextFile(Paths.txt('funnyTips'));
 		if (tipsArray == null){
-				canDoTips = false;
-				trace('The tips don\'t exist!');
+			canDoTips = false;
+			trace('The tips don\'t exist!');
 		}
+		
+		#if FUNNY_ALLOWED
+		if ((FlxG.random.bool(1) && DateUtils.date.getHours() == 3))  {
+			funnycatperson = new FlxSprite().loadGraphic(Paths.image('catto', 'embed'));
+			funnycatperson.setPosition(-60, FlxG.height - funnycatperson.height + 850); // I wanna die
+			funnycatperson.scale.set(0.2, 0.2);
+			funnycatperson.updateHitbox();
+			funnycatperson.moves = false;
+			funnycatperson.scrollFactor.set(0, 0);
+			//funnycatperson.screenCenter(X);
+			funnycatperson.alpha = 0.8;
+
+			FlxG.mouse.visible = true;
+		}
+		#end
 
 		#if MODS_ALLOWED
 		Paths.pushGlobalMods();
@@ -107,6 +128,9 @@ class MainMenuState extends MusicBeatState
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
+		
+		if (funnycatperson != null)
+			add(funnycatperson);
 
 		var scale:Float = 1;
 
@@ -160,7 +184,7 @@ class MainMenuState extends MusicBeatState
 		add(tipText);
 
 		if (canDoTips)
-				tipBackground.makeGraphic(FlxG.width, Std.int((tipTextMargin * 2) + tipText.height), FlxColor.BLACK);
+			tipBackground.makeGraphic(FlxG.width, Std.int((tipTextMargin * 2) + tipText.height), FlxColor.BLACK);
 		else if (tipBackground != null){
 			tipBackground.destroy();
 			tipBackground = null;
@@ -341,6 +365,28 @@ class MainMenuState extends MusicBeatState
 		}
 		#end
 		}
+		//
+		#if FUNNY_ALLOWED
+		if (funnycatperson != null && FlxG.mouse.overlaps(funnycatperson) && FlxG.mouse.justPressed){
+			final screencap = new FlxSprite(0, 0, FlxScreenGrab.grab().bitmapData);
+			screencap.screenCenter(XY);
+			screencap.scrollFactor.set(0, 0);
+			add(screencap);
+			final red:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.RED);
+			red.screenCenter(XY);
+			red.scrollFactor.set(0, 0);
+			red.blend = BlendMode.MULTIPLY;
+			add(red);
+			
+			FlxG.sound.music.stop();
+
+			final theCrash = FlxG.sound.play(Paths.sound('crash', 'shared'), 1);
+			theCrash.onComplete = function(){
+				CoolUtil.showPopUp('YOU JUST MADE AN BIG MISTAKE', 'HELLO');
+				openfl.system.System.exit(0);
+			}
+		}
+		#end
 
 		super.update(elapsed);
 
