@@ -418,18 +418,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 		option.onChange = onChangePauseMusic;
 
-		#if FUNNY_ALLOWED
-			if (!DateUtils.isAprilFools) {
-				var option:Option = new Option('Menu Song:',
-					"What song do you prefer when you're in menus?",
-					'daMenuMusic',
-					'string',
-					'Default',
-					['Default', 'Anniversary', 'Mashup', 'Base Game', 'DDTO+', 'Dave & Bambi', 'Dave & Bambi (Old)', 'VS Impostor', 'VS Nonsense V2']);
-				addOption(option);
-				option.onChange = onChangeMenuMusic;
-			}
-		#else
+		if (!DateUtils.isAprilFools()) {
 			var option:Option = new Option('Menu Song:',
 				"What song do you prefer when you're in menus?",
 				'daMenuMusic',
@@ -438,7 +427,7 @@ class VisualsUISubState extends BaseOptionsMenu
 				['Default', 'Anniversary', 'Mashup', 'Base Game', 'DDTO+', 'Dave & Bambi', 'Dave & Bambi (Old)', 'VS Impostor', 'VS Nonsense V2']);
 			addOption(option);
 			option.onChange = onChangeMenuMusic;
-		#end
+		}
 
 		#if CHECK_FOR_UPDATES
 		var option:Option = new Option('Check for Updates',
