@@ -347,8 +347,10 @@ class MainMenuState extends MusicBeatState
 									case 'mods':
 										FlxG.switchState(ModsMenuState.new);
 									#end
+									#if ACHIEVEMENTS_ALLOWED
 									case 'awards':
 										LoadingState.loadAndSwitchState(AchievementsMenuState.new);
+									#end
 									case 'credits':
 										FlxG.switchState(CreditsState.new);
 									case 'options':
