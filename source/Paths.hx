@@ -532,7 +532,7 @@ class Paths
 
             // Check if it's April Fools Day
             #if FUNNY_ALLOWED
-                if (isAprilFools)
+                if (DateUtils.isAprilFools())
                     playAprilFools = true;
             #end
 

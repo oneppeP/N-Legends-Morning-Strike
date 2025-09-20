@@ -419,7 +419,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.onChange = onChangePauseMusic;
 
 		#if FUNNY_ALLOWED
-			if (!DateUtils.isAprilFools) {
+			if (!DateUtils.isAprilFools()) {
 				var option:Option = new Option('Menu Song:',
 					"What song do you prefer when you're in menus?",
 					'daMenuMusic',
