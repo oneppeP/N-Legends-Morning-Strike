@@ -530,13 +530,10 @@ class Paths
         if (FlxG.sound.music == null || force) {
             var playAprilFools:Bool = false;
 
-            // Check if it's April Fools and not disabled in settings
-            #if APRIL_FOOLS
-            if (!ClientPrefs.disableAprilFools) {
-	            final date:Date = Date.now();
-                if (date.getMonth() == 3 && date.getDate() == 1)
+            // Check if it's April Fools Day
+            #if FUNNY_ALLOWED
+                if (isAprilFools)
                     playAprilFools = true;
-            }
             #end
 
             if (playAprilFools) {

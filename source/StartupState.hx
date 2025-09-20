@@ -62,14 +62,14 @@ class StartupState extends MusicBeatState
 	{
 		if (DateUtils.isChristmas()) //Only triggers if the date is between 12/16 and 12/31
 		{
-				canChristmas = true;
-				maxIntros += 1; //JOLLY SANTA!!!
+			canChristmas = true;
+			maxIntros += 1; //JOLLY SANTA!!!
 		}
 		else if (DateUtils.isAprilFools()) // funny
 		{
-				canAutism = true;
-				maxIntros += 1; //autism!!!!!!!!!!!!!!!!!!!!!!oubgrebiugerbiuegrs
-				// burger
+			canAutism = true;
+			maxIntros += 1; //autism!!!!!!!!!!!!!!!!!!!!!!oubgrebiugerbiuegrs
+			// burger
 		}
 		FlxTransitionableState.skipNextTransIn = true;
 		FlxTransitionableState.skipNextTransOut = true;

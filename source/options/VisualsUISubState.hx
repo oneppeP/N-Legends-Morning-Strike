@@ -418,8 +418,8 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 		option.onChange = onChangePauseMusic;
 
-		#if APRIL_FOOLS
-			if (!ClientPrefs.disableAprilFools || !(date.getMonth() == 3 && date.getDate() == 1)) {
+		#if FUNNY_ALLOWED
+			if (!DateUtils.isAprilFools) {
 				var option:Option = new Option('Menu Song:',
 					"What song do you prefer when you're in menus?",
 					'daMenuMusic',
@@ -558,7 +558,7 @@ class VisualsUISubState extends BaseOptionsMenu
 	function onChangeMenuMusic()
 	{
 			if (ClientPrefs.daMenuMusic != 'Default') FlxG.sound.playMusic(Paths.music('freakyMenu-' + ClientPrefs.daMenuMusic));
-			if (ClientPrefs.daMenuMusic == 'Default') FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			else FlxG.sound.playMusic(Paths.music('freakyMenu'));
 		menuMusicChanged = true;
 	}
 
