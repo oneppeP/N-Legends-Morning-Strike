@@ -24,7 +24,7 @@ import neko.vm.Gc;
 
 
 @:access(openfl.display.BitmapData)
-@:nullSafety
+//@:nullSafety // not yet
 class Paths
 {
 	inline public static var SOUND_EXT = #if web "mp3" #else "ogg" #end;
@@ -74,7 +74,6 @@ class Paths
 		else defaultSkin = 'noteskins/NOTE_assets';
 		trace(defaultSkin);
 	}
-
 	public static function initNote(?noteSkin:String)
 	{
 		// Do this to be able to just copy over the note animations and not reallocate it
