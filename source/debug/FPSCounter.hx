@@ -117,7 +117,7 @@ class FPSCounter extends TextField
 					text += '\nOS: ${LimeSystem.platformName}' #if cpp + ' ${getArch()}' #end + ' - ${LimeSystem.platformVersion}';
 
 
-			text += '\nVersion: ${MainMenuState.psychEngineJSVersion}' #if commit + '(Commit $MainMenuState.gitCommit)' #end;
+			text += '\nVersion: ${MainMenuState.psychEngineJSVersion}' #if commit + '(Commit ${MainMenuState.gitCommit})' #end;
 		}
 	}
 	#if cpp

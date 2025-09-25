@@ -192,7 +192,7 @@ jobs:
 
       - uses: krdlab/setup-haxe@master
         with:
-          haxe-version: 4.3.4
+          haxe-version: 4.3.7
       - name: Restore Previous Cache
         id: cache-build-macosintel-restore
         uses: actions/cache/restore@main
@@ -271,7 +271,7 @@ jobs:
 
       - uses: krdlab/setup-haxe@master
         with:
-          haxe-version: 4.3.4
+          haxe-version: 4.3.7
       - name: Restore Previous Cache
         id: cache-build-macosarm-restore
         uses: actions/cache/restore@main
