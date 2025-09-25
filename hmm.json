@@ -85,15 +85,15 @@
       "name": "funkin.vis",
       "type": "git",
       "dir": null,
-      "ref": "22b1ce089dd924f15cdc4632397ef3504d464e90",
-      "url": "https://github.com/FunkinCrew/funkVis"
+      "ref": "main",
+      "url": "https://github.com/JS-Engine-things/funkVis-FrequencyFixed"
     },
     {
       "name": "grig.audio",
       "type": "git",
       "dir": null,
-      "ref": "funkin",
-      "url": "https://github.com/FunkinCrew/grig.audio.git"
+      "ref": "master",
+      "url": "https://github.com/JS-Engine-things/grig.audio"
     },
     {
       "name": "away3d",
