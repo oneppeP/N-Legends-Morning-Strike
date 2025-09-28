@@ -1,7 +1,7 @@
 <!-- this is an secret -->
 <h1 align="center">
   <br>
-  <a href="https://github.com/JordanSantiagoYT/FNF-JS-Engine"><img src="/art/iconOG.png" alt="JSengine" width="150"></a>
+  <a href="https://github.com/JordanSantiagoYT/FNF-JS-Engine"><img src="....png" alt="JSengine" width="150"></a>
   <br>
   <b>N Legends Morning Strike</b>
   <br>
@@ -9,3 +9,4 @@
 <h3 align="center">
   <b>Graphic design is my passion...</b>
 </h3>
+
