@@ -102,7 +102,7 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
-          name: linuxBuild
+          name: NLegendLinuxBuild
           path: export/release/linux/bin
 
   buildWindows:
@@ -181,7 +181,7 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
-          name: windowsBuild
+          name: NLegendWindowsBuild
           path: export/release/windows/bin
   buildMacIntel:
     runs-on: macos-15
@@ -259,7 +259,7 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
-          name: macBuild-intel
+          name: NLegendMacBuild-intel
           path: export/release/macos/bin
 
   buildMacArm:
@@ -338,5 +338,5 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
-          name: macBuild-arm
+          name: NLegendMacBuild-arm
           path: export/release/macos/bin
