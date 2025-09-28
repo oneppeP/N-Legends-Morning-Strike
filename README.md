@@ -3,7 +3,9 @@
 </h2>
 <!-- N Legends Golpe Matutino -->
 
-[Latest Release](https://github.com/oneppeP/N-Legends-Morning-Strike/releases/latest)
+[--Latest Release--](https://github.com/oneppeP/N-Legends-Morning-Strike/releases/latest)
+
+(hold on)
 
 
 <h1 align="center">
@@ -19,6 +21,7 @@
 
 # WARNING
 This mod is still in an heavy W.I.P, so much things are expected or to have bugs or to be bad or unfinished, so yeah
+
 
 
 
