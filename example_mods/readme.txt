@@ -1,3 +1,17 @@
-You can either edit files or add entirely new ones here.
+so i used this for the mod to make it easier to mod it.....
 
-You need to put custom songs in the mods folder, including the data for it, or it will not work.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+please don't change anything here 
