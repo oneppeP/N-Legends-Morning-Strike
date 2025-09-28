@@ -5,7 +5,7 @@
 
 [--Latest Release--](https://github.com/oneppeP/N-Legends-Morning-Strike/releases/latest)
 
-(hold on)
+(no releases yet!)
 
 
 <h1 align="center">
@@ -21,6 +21,10 @@
 
 # WARNING
 This mod is still in an heavy W.I.P, so much things are expected or to have bugs or to be bad or unfinished, so yeah
+
+# VERSIONS
+[0.0.1 menu test](https://github.com/oneppeP/N-Legends-Morning-Strike/actions/runs/18078313456) (current)
+
 
 
 
