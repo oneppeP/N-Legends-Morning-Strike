@@ -1,7 +1,7 @@
 <!-- N Legend's Golpe Matutino -->
 <h1 align="center">
   <br>
-  <a href="https://github.com/oneppeP/N-Legends-Morning-Strike"><img src="logo.png" alt="Logo" width="3000"></a>
+  <a href="https://github.com/oneppeP/N-Legends-Morning-Strike"><img src="/art/logo.png" alt="Mod's Logo" width="2000"></a>
   <br>
   <b>N Legend's Morning Strike</b>
   <br>
@@ -13,6 +13,7 @@
 
 # W.I.P
 Yea
+
 
 
 
