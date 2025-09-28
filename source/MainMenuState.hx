@@ -29,6 +29,7 @@ class MainMenuState extends MusicBeatState
 		'freeplay',
 		#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits',
+		'discord',
 		'options'
 	];
 
@@ -300,9 +301,9 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
-				if (optionShit[curSelected] == 'donate')
+				if (optionShit[curSelected] == 'discord')
 				{
-					CoolUtil.browserLoad('https://github.com/JordanSantiagoYT/FNF-JS-Engine');
+					CoolUtil.browserLoad('https://discord.gg/tu4qcB9fnv');
 				}
 				else
 				{
@@ -335,10 +336,6 @@ class MainMenuState extends MusicBeatState
 										FlxG.switchState(StoryMenuState.new);
 									case 'freeplay':
 										FlxG.switchState(FreeplayState.new);
-									#if MODS_ALLOWED
-									case 'mods':
-										FlxG.switchState(ModsMenuState.new);
-									#end
 									#if ACHIEVEMENTS_ALLOWED
 									case 'awards':
 										LoadingState.loadAndSwitchState(AchievementsMenuState.new);
@@ -411,7 +408,7 @@ class MainMenuState extends MusicBeatState
 				if(menuItems.length > 4) {
 					add = menuItems.length * 8;
 				}
-				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - add);
+				camFollow.setPosition(spr.getGraphicMidpoint().x + 50, spr.getGraphicMidpoint().y - add);
 				spr.centerOffsets();
 			}
 		});
