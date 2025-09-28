@@ -1,14 +1,11 @@
 <h2 align="center">
   <b>Links or whatever</b>
 </h2>
+<!-- N Legends Golpe Matutino -->
 
 [Latest Release](https://github.com/oneppeP/N-Legends-Morning-Strike/releases/latest)
 
-[Warning](https://github.com/oneppeP/N-Legends-Morning-Strike/main/#warning)
 
-
-
-<!-- N Legend's Golpe Matutino -->
 <h1 align="center">
   <br>
   <a href=" "><img src="/art/logo.png" alt="Mod's Logo" width="2000"></a>
@@ -22,6 +19,7 @@
 
 # WARNING
 This mod is still in an heavy W.I.P, so much things are expected or to have bugs or to be bad or unfinished, so yeah
+
 
 
 
