@@ -15,6 +15,7 @@ class MainMenuState extends MusicBeatState
 {
 	public static final gitCommit:String = HaxeCommit.getGitCommitHash();
 
+	public static var modVersion:String = '0.0.1';
 	public static var psychEngineJSVersionNumber:String = '1.49.0-nightly1'; //This is also used for Discord RPC
 	public static var psychEngineJSVersion:String = psychEngineJSVersionNumber; //This is also used for Discord RPC
 	public static var psychEngineVersion:String = '0.6.3'; //This is also used for Discord RPC
@@ -155,6 +156,10 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollow, null, 1);
 
+		var LegeVersion:FlxText = new FlxText(12, FlxG.height - 87, 0, "N Legend's Mornin' Strike Ver" + modVersion, 12);
+		LegeVersion.scrollFactor.set();
+		LegeVersion.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(LegeVersion);
 		var JSVersion:FlxText = new FlxText(12, FlxG.height - 64, 0, "JS Engine v" + psychEngineJSVersion, 12);
 		JSVersion.scrollFactor.set();
 		JSVersion.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
