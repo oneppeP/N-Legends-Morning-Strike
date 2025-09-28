@@ -193,7 +193,6 @@ class MainMenuState extends MusicBeatState
 		#if MODS_ALLOWED
 		Achievements.reloadList();
 		#end
-		#end
 
 		changeItem();
 		tipTextStartScrolling();
