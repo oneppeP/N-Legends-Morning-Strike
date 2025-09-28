@@ -27,10 +27,8 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		#if MODS_ALLOWED 'mods', #end
 		#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits',
-		'donate',
 		'options'
 	];
 
@@ -87,9 +85,8 @@ class MainMenuState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("Exploring the menu", null);
 		#end
-		debugKeys = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 
 		camGame = initPsychCamera();
 		camAchievement = new FlxCamera();
@@ -191,11 +188,6 @@ class MainMenuState extends MusicBeatState
 		}
 
 		changeItem();
-
-		#if ACHIEVEMENTS_ALLOWED
-		// Unlocks "Freaky on a Friday Night" achievement if it's a Friday and between 18:00 PM and 23:59 PM
-		if (DateUtils.isFunkin())
-			Achievements.unlock('friday_night_play');
 
 		#if MODS_ALLOWED
 		Achievements.reloadList();
