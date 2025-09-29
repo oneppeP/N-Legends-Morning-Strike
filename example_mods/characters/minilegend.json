@@ -1,0 +1,96 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-69,
+				70
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Down"
+		},
+		{
+			"offsets": [
+				70,
+				102
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Up"
+		},
+		{
+			"offsets": [
+				-9,
+				69
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Left"
+		},
+		{
+			"offsets": [
+				62,
+				81
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Right"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 4,
+			"anim": "idle",
+			"indices": [],
+			"name": "Idle"
+		}
+	],
+	"vocals_file": "",
+	"losing_colors": [
+		0,
+		0,
+		0
+	],
+	"no_antialiasing": true,
+	"image": "characters/space legend/Lege",
+	"shake_duration": 0,
+	"position": [
+		-90,
+		110
+	],
+	"health_drain": true,
+	"shake_intensity": 0,
+	"healthicon": "lege",
+	"shake_screen": false,
+	"drain_floor": 0,
+	"flip_x": false,
+	"healthbar_colors": [
+		0,
+		0,
+		0
+	],
+	"drain_amount": 2,
+	"camera_position": [
+		-220,
+		-20
+	],
+	"sing_duration": 4,
+	"noteskin": null,
+	"winning_colors": [
+		0,
+		0,
+		0
+	],
+	"scale": 1
+}
