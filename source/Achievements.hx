@@ -20,7 +20,7 @@ typedef Achievement =
 class Achievements {
 	public static function init()
 	{
-		createAchievement('debugger',				{name: "Debugger", description: "Beat the \"Test\" Stage from the Chart Editor.", hidden: true});
+		createAchievement('ML1_nomiss',				{name: "End of the demo!", description: "Beat Space Legend without any misses.", hidden: false});
 
 		//dont delete this thing below
 		_originalLength = _sortID + 1;
