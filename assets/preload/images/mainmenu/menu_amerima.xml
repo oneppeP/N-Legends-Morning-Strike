@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="menu_amerima.png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="amerima white0000" x="0" y="0" width="442" height="112" frameX="-61" frameY="-34" frameWidth="560" frameHeight="155"/>
+	<SubTexture name="amerima basic0000" x="442" y="0" width="462" height="53" frameX="-45" frameY="-62" frameWidth="560" frameHeight="155"/>
+</TextureAtlas>
