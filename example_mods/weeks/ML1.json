@@ -1,0 +1,32 @@
+{
+	"songs": [
+		[
+			"Space Legend",
+			"lege",
+			[
+				255,
+				93,
+				80
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"difficulties": "Normal",
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"storyName": "N DAY (W.I.P)",
+	"weekName": "Morning Legend",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": false,
+	"weekBefore": "tutorial",
+	"startUnlocked": true
+}
