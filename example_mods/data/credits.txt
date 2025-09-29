@@ -1,2 +1,3 @@
 N Legend's Morning Strike
-:N Legend::lege::The creator of his character N Legend\nduh:::::0000000
+
+:N Legend::lege::The creator of his character N Legend\nduh::https://www.youtube.com/channel/UC6d2t-vVdVFbEtM3r_TUKtw:::0000000
