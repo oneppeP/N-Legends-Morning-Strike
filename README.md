@@ -3,11 +3,8 @@
 </h2>
 <!-- N Legends Golpe Matutino -->
 
-[--Latest Release--](https://github.com/oneppeP/N-Legends-Morning-Strike/releases/latest)
-
-[--Versions--](https://github.com/oneppeP/N-Legends-Morning-Strike#versions)
-
-[--To Do List--](https://github.com/oneppeP/N-Legends-Morning-Strike/releases/tag/2dolist)
+| [--Latest Release--](https://github.com/oneppeP/N-Legends-Morning-Strike/releases/latest) |
+[--To Do List--](https://github.com/oneppeP/N-Legends-Morning-Strike/releases/tag/2dolist) |
 
 
 <h1 align="center">
@@ -32,3 +29,4 @@ This mod is still in an heavy W.I.P, so much things are expected or to have bugs
 
 
 [See all...](https://github.com/oneppeP/N-Legends-Morning-Strike/actions)
+
