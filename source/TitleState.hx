@@ -63,7 +63,7 @@ class TitleState extends MusicBeatState
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
-		MusicBeatState.windowNameSuffix = " - Title Screen";
+		MusicBeatState.windowNameSuffix = " - Welcome";
 
 		MusicBeatState.windowNamePrefix = Assets.getText(Paths.txt("windowTitleBase", "preload"));
 
@@ -512,3 +512,4 @@ class TitleState extends MusicBeatState
 		}
 	}
 }
+
