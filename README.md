@@ -26,11 +26,13 @@ This mod is still in an heavy W.I.P, so much things are expected or to have bugs
 
 # VERSIONS
 [0.0.1 menu test](https://github.com/oneppeP/N-Legends-Morning-Strike/actions/runs/18078313456)
+
 [0.0.2 alpha](https://github.com/oneppeP/N-Legends-Morning-Strike/actions/runs/18083592220) (current)
 
 
 
 [See all...](https://github.com/oneppeP/N-Legends-Morning-Strike/actions)
+
 
 
 
