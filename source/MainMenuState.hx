@@ -32,8 +32,7 @@ class MainMenuState extends MusicBeatState
 		'credits',
 		'discord',
 		'options',
-		'github',
-		'amerima'
+		'github'
 	];
 
 	var magenta:FlxSprite;
@@ -57,7 +56,7 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
-		MusicBeatState.windowNameSuffix = " - Main Menu";
+		MusicBeatState.windowNameSuffix = " - Main Menu (" + tipsArray[FlxG.random.int(0, tipsArray.length - 1)].replace('--', '\n'); + ")";
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
